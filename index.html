@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars RPG</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Molengo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lekton" rel="stylesheet">
+
+</head>	
+
+<body>
+
+    <!-- <h1>STAR WARS</h1> -->
+
+    <div class="characters">
+
+        <div class="fighter-top">
+
+                <div class="fighter fighter-player hero hero-1" id="bb-8" health="100" attack="10">
+                    <p>BB-8</p>
+                </div><br>
+                <div class="fighter fighter-player hero hero-2" id="obi-wan" health="250" attack="50">
+                    <p>OBI-WAN KENOBI</p>
+                </div><br>
+                <div class="fighter fighter-player hero hero-3" id="r2-d2" health="100" attack="25">
+                    <p>R2-D2</p>
+                </div><br>
+           
+                <div class="fighter fighter-player hero hero-4" id="yoda" health="300" attack="75">
+                    <p>YODA</p>
+                </div><br> 
+
+
+        </div>
+
+        <div class="fighter-bottom">
+
+                <div class="fighter fighter-player villain villain-1" id="porg" health="50" attack="10">
+                    <p>PORG</p>
+                </div><br>
+           
+                <div class="fighter fighter-player villain villain-2" id="darth-vader" health="200" attack="50">
+                    <p>DARTH VADER</p>
+                </div><br>
+           
+                <div class="fighter fighter-player villain villain-3" id="stormtrooper" health="100" attack="25">
+                    <p>STORMTROOPER</p>
+                </div><br>
+            
+                <div class="fighter fighter-player villain villain-4" id="darth-maul" health="150" attack="50">
+                    <p>DARTH MAUL</p><br>
+                </div>
+            <!-- <div class="fighter" id="random" health="" attack="">
+                <img src="assets/images/random.png">
+                <p>RANDOM</p>
+            </div> -->
+        </div>
+
+        <div>DEFEATED ENEMIES</div><br>
+        <div id="defeated-enemies"></div><br>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="fight-section col-4" id="user-box">
+
+                <h2>YOUR CHARACTER</h2><br>
+                <div id="user-name"></div><br>
+
+                <div class="row">
+                    <div class="col-6" id="user">
+                    </div>
+
+                    <div class="col-6" id="stats">
+
+                        <p>HEALTH</p><br>
+                       <div id="user-health-points">--</div><br>
+
+                        <p>ATTACK</p><br>
+                        <div id="user-attack-points">--</div><br>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="fight-section col-4" id="attack">
+                <button class="btn-lg btn-outline-danger" id="attack-button">ATTACK</button>
+                <button class="btn-lg btn-outline-danger" id="restart-button">RESTART</button>
+
+            </div><br>
+
+            <div class="fight-section col-4" id="enemy-box">
+
+                <h2>ENEMY</h2><br>
+                <div id="enemy-name"></div><br>
+
+
+                <div class="row">
+                    <div class="col-6" id="enemy"></div>
+    
+                        <div class="col-6" id="stats">
+    
+                            <p>HEALTH</p><br>
+                           <div id="enemy-health-points">--</div><br>
+    
+                            <p>ATTACK</p><br>
+                            <div id="enemy-attack-points">--</div><br>
+    
+                        </div>
+                </div>
+            </div>
+
+            <div id='result'>RESULT</div>
+
+        </div>
+
+        
+
+        
+    </div>
+    
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+</body>

@@ -1,0 +1,114 @@
+body {
+    box-sizing: border-box;
+    width: 80%;
+    background: black;
+    color: white;
+    margin: 0 auto;
+    font-family: 'Lekton';
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+}
+
+/* FIGHTER IMAGES */
+
+img {
+    height: 140px;
+}
+
+
+.characters {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+.fighter {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid white;
+    height: 200px;
+    width: 150px;
+}
+
+.fighter p {
+    margin-top: 10px;
+}
+
+.fighter-top {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* --- FIGHT ZONE ---- */
+
+
+.container {
+    text-align: center;
+}
+
+.fight-section {
+    height: 275px;
+    padding-top: 20px;
+}
+
+.fight-section h2 {
+    margin-bottom: 20px;
+}
+
+
+#user-stats,
+#enemy-stats {
+    padding-top: 10px;
+    font-size: 24px;
+}
+
+
+#user-box,
+#enemy-box {
+    border: 1px solid white;
+    display: inline-block;
+}
+
+ #enemy,
+ #user,
+ #user-stats,
+ #enemy-stats {
+    /* border: 1px solid white; */
+    display: inline-block;
+} 
+
+#user-container,
+#enemy-container {
+    /* border: 1px solid white; */
+    height: 200px;
+    width: 150px;
+    
+}
+
+#attack {
+    /* border: 1px solid white; */
+    display: inline-block;
+    padding-top: 100px;
+}
+
+
+
+.message {
+    /* border: 1px solid white; */
+    float: right;
+    height: 200px;
+    width: 300px;
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    padding-top: 80px;
+    font-size: 24px;
+    color: yellow;
+}
+
+.characters {
+    position: relative;
+}

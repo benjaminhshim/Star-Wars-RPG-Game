@@ -3,8 +3,7 @@ $(document).ready(function() {
     var chosenUser = false;
     var chosenEnemy = false;
     var messageLock = false;
-
-    var attack = false;
+    var attackLock = false;
 
     var userAttack;
     var userHealth;
@@ -82,9 +81,16 @@ $(document).ready(function() {
             userAttack = bb8.attack;
             userHealth = bb8.health;
 
+            
             $(user).clone(this).appendTo('#user-container');
+            $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
             $('#user-health-points').html(bb8.health);
             $('#user-attack-points').html(bb8.attack); 
+
+            $('.hero-2').css('opacity', '0.3');
+            $('.hero-3').css('opacity', '0.3');
+            $('.hero-4').css('opacity', '0.3');
+
         } else if ((chosenUser == true) && (chosenEnemy == false)) {
             chosenEnemy = true;
             enemy = chosenEnemy;
@@ -93,17 +99,22 @@ $(document).ready(function() {
             enemyAttack = bb8.attack;
             enemyHealth = bb8.health;
 
-            $(enemy).clone(this).appendTo('#enemy-container');
+            //$(enemy).clone(this).appendTo('#enemy-container');
+            $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+            $('#enemy-container').html(enemy);
             $('#enemy-health-points').html(bb8.health);
             $('#enemy-attack-points').html(bb8.attack);
         }
 
         if (messageLock == false) {
             $('.message').css('border', '1px solid yellow');
-            $('.message').html('DEFEAT THE EMPIRE! <br> (and their evil porg)');
+            $('.message').html('<h2>DEFEAT THE EMPIRE!<h2> <p>(and their evil porg)<p>');
             messageLock = true;
         }
 
+        
+
+        
 
 
     })
@@ -120,8 +131,13 @@ $(document).ready(function() {
             userHealth = obiWan.health;
 
             $(user).clone(this).appendTo('#user-container');
+            $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
             $('#user-health-points').html(obiWan.health);
             $('#user-attack-points').html(obiWan.attack);
+
+            $('.hero-1').css('opacity', '0.3');
+            $('.hero-3').css('opacity', '0.3');
+            $('.hero-4').css('opacity', '0.3');
 
         } else if ((chosenUser == true) && (chosenEnemy == false)) {
             chosenEnemy = true;
@@ -131,10 +147,20 @@ $(document).ready(function() {
             enemyAttack = obiWan.attack;
             enemyHealth = obiWan.health;
 
-            $(enemy).clone(this).appendTo('#enemy-container');
+            //$(enemy).clone(this).appendTo('#enemy-container');
+            $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+            $('#enemy-container').html(enemy);
             $('#enemy-health-points').html(obiWan.health);
             $('#enemy-attack-points').html(obiWan.attack);
         }
+
+        if (messageLock == false) {
+            $('.message').css('border', '1px solid yellow');
+            $('.message').html('<h2>DEFEAT THE EMPIRE!<h2> <p>(and their evil porg)<p>');
+            messageLock = true;
+        }
+
+
 
 
     })
@@ -151,8 +177,15 @@ $(document).ready(function() {
             userHealth = r2d2.health;
 
             $(user).clone(this).appendTo('#user-container');
+            $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
             $('#user-health-points').html(r2d2.health);
             $('#user-attack-points').html(r2d2.attack); 
+
+            $('.hero-1').css('opacity', '0.3');
+            $('.hero-2').css('opacity', '0.3');
+            $('.hero-4').css('opacity', '0.3');
+
+            
         } else if ((chosenUser == true) && (chosenEnemy == false)) {
             chosenEnemy = true;
             enemy = chosenEnemy;
@@ -161,10 +194,19 @@ $(document).ready(function() {
             enemyAttack = r2d2.attack;
             enemyHealth = r2d2.health;
 
-            $(enemy).clone(this).appendTo('#enemy-container');
+            //$(enemy).clone(this).appendTo('#enemy-container');
+            $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+            $('#enemy-container').html(enemy);
             $('#enemy-health-points').html(r2d2.health);
             $('#enemy-attack-points').html(r2d2.attack);
         }
+
+        if (messageLock == false) {
+            $('.message').css('border', '1px solid yellow');
+            $('.message').html('<h2>DEFEAT THE EMPIRE!<h2> <p>(and their evil porg)<p>');
+            messageLock = true;
+        }
+
 
     })
 
@@ -180,8 +222,14 @@ $(document).ready(function() {
             userHealth = yoda.health;
 
             $(user).clone(this).appendTo('#user-container');
+            $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
             $('#user-health-points').html(yoda.health);
             $('#user-attack-points').html(yoda.attack); 
+
+            $('.hero-1').css('opacity', '0.3');
+            $('.hero-2').css('opacity', '0.3');
+            $('.hero-3').css('opacity', '0.3');
+    
         } else if ((chosenUser == true) && (chosenEnemy == false)) {
             chosenEnemy = true;
             enemy = chosenEnemy;
@@ -190,10 +238,19 @@ $(document).ready(function() {
             enemyAttack = yoda.attack;
             enemyHealth = yoda.health;
 
-            $(enemy).clone(this).appendTo('#enemy-container');
+            //$(enemy).clone(this).appendTo('#enemy-container');
+            $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+            $('#enemy-container').html(enemy);
             $('#enemy-health-points').html(yoda.health);
             $('#enemy-attack-points').html(yoda.attack);
         }
+
+        if (messageLock == false) {
+            $('.message').css('border', '1px solid yellow');
+            $('.message').html('<h2>DEFEAT THE EMPIRE!<h2> <p>(and their evil porg)<p>');
+            messageLock = true;
+        }
+
 
     })
 
@@ -209,8 +266,15 @@ $(document).ready(function() {
             userHealth = porg.health;
 
             $(user).clone(this).appendTo('#user-container');
+            $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
+
             $('#user-health-points').html(porg.health);
             $('#user-attack-points').html(porg.attack); 
+
+            $('.villain-2').css('opacity', '0.3');
+            $('.villain-3').css('opacity', '0.3');
+            $('.villain-4').css('opacity', '0.3');
+
         } else if ((chosenUser == true) && (chosenEnemy == false)) {
             chosenEnemy = true;
             enemy = chosenEnemy;
@@ -219,14 +283,16 @@ $(document).ready(function() {
             enemyAttack = porg.attack;
             enemyHealth = porg.health;
 
-            $(enemy).clone(this).appendTo('#enemy-container');
+            //$(enemy).clone(this).appendTo('#enemy-container');
+            $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+            $('#enemy-container').html(enemy);
             $('#enemy-health-points').html(porg.health);
             $('#enemy-attack-points').html(porg.attack);
         }
 
         if ((messageLock == false)) {
             $('.message').css('border', '1px solid yellow');
-            $('.message').html('DEFEAT THE REBELLION!');
+            $('.message').html('<h2>DEFEAT THE REBELLION!<h2>');
             messageLock = true;
         }
 
@@ -247,8 +313,14 @@ $(document).ready(function() {
             userHealth = darthVader.health;
 
             $(user).clone(this).appendTo('#user-container');
+            $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
             $('#user-health-points').html(darthVader.health);
             $('#user-attack-points').html(darthVader.attack); 
+
+            $('.villain-1').css('opacity', '0.3');
+            $('.villain-3').css('opacity', '0.3');
+            $('.villain-4').css('opacity', '0.3');
+
         } else if ((chosenUser == true) && (chosenEnemy == false)) {
             chosenEnemy = true;
             enemy = chosenEnemy;
@@ -257,10 +329,20 @@ $(document).ready(function() {
             enemyAttack = darthVader.attack;
             enemyHealth = darthVader.health;
 
-            $(enemy).clone(this).appendTo('#enemy-container');
+            //$(enemy).clone(this).appendTo('#enemy-container');
+            $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+            $('#enemy-container').html(enemy);
             $('#enemy-health-points').html(darthVader.health);
             $('#enemy-attack-points').html(darthVader.attack);
         }
+
+        if ((messageLock == false)) {
+            $('.message').css('border', '1px solid yellow');
+            $('.message').html('<h2>DEFEAT THE REBELLION!</h2>');
+            messageLock = true;
+        }
+
+
 
     })
 
@@ -276,8 +358,14 @@ $(document).ready(function() {
             userHealth = stormtrooper.health;
 
             $(user).clone(this).appendTo('#user-container');
+            $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
             $('#user-health-points').html(stormtrooper.health);
-            $('#user-attack-points').html(stormtrooper.attack); 
+            $('#user-attack-points').html(stormtrooper.attack);
+            
+            $('.villain-1').css('opacity', '0.3');
+            $('.villain-2').css('opacity', '0.3');
+            $('.villain-4').css('opacity', '0.3');
+
         } else if ((chosenUser == true) && (chosenEnemy == false)) {
             chosenEnemy = true;
             enemy = chosenEnemy;
@@ -285,10 +373,20 @@ $(document).ready(function() {
             enemyAttack = stormtrooper.attack;
             enemyHealth = stormtrooper.health;
 
-            $(enemy).clone(this).appendTo('#enemy-container');
+            //$(enemy).clone(this).appendTo('#enemy-container');
+            $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+            $('#enemy-container').html(enemy);
             $('#enemy-health-points').html(stormtrooper.health);
             $('#enemy-attack-points').html(stormtrooper.attack);
         }
+
+        if ((messageLock == false)) {
+            $('.message').css('border', '1px solid yellow');
+            $('.message').html('<h2>DEFEAT THE REBELLION!</h2>');
+            messageLock = true;
+        }
+
+
 
     })
 
@@ -304,8 +402,15 @@ $(document).ready(function() {
             userHealth = darthMaul.health;
 
             $(user).clone(this).appendTo('#user-container');
+            $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
             $('#user-health-points').html(darthMaul.health);
             $('#user-attack-points').html(darthMaul.attack); 
+
+
+            $('.villain-1').css('opacity', '0.3');
+            $('.villain-2').css('opacity', '0.3');
+            $('.villain-3').css('opacity', '0.3');
+
         } else if ((chosenUser == true) && (chosenEnemy == false)) {
             chosenEnemy = true;
             enemy = chosenEnemy;
@@ -314,10 +419,19 @@ $(document).ready(function() {
             enemyAttack = darthMaul.attack;
             enemyHealth = darthMaul.health;
 
-            $(enemy).clone(this).appendTo('#enemy-container');
+            //$(enemy).clone(this).appendTo('#enemy-container');
+            $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+            $('#enemy-container').html(enemy);
             $('#enemy-health-points').html(darthMaul.health);
             $('#enemy-attack-points').html(darthMaul.attack);
         }
+
+        if ((messageLock == false)) {
+            $('.message').css('border', '1px solid yellow');
+            $('.message').html('<h2>DEFEAT THE REBELLION!<h2>');
+            messageLock = true;
+        }
+
 
     })
 
@@ -325,7 +439,6 @@ $(document).ready(function() {
     // ATTACK BUTTON
     $('#attack-button').click(function() {
         // USER ATTACK INCREMENTS
-        attack = false;
         userCounterAttack = userCounterAttack + userAttack;
 
         // USERHEALTH DECREASES BY ENEMY'S ATTACK VALUE
@@ -344,6 +457,10 @@ $(document).ready(function() {
         if (userHealth <= 0) {
             $('#restart-button').show();
             $('#attack-button').hide();
+
+                $('.message').css('border', '1px solid yellow').css('font-weight', 'bold');
+                $('.message').html('<h2>GAME OVER.</h2><br><h2>PRESS RESTART TO PLAY AGAIN.</h2>');
+
         }
 
         // IF A SINGLE ENEMY DIES
@@ -358,14 +475,22 @@ $(document).ready(function() {
             chosenEnemy = false;
 
             // REMOVE CURRENT ENEMY IMAGE
-            $('#enemy-container').hide();
+
         }
 
         // IF USER DEFEATS ALL ENEMIES
         if (defeatedEnemies.length === 4) {
-            $('#result').html('win');
+
+            
+            $('.message').css('border', '1px solid yellow').css('font-weight', 'bold');
+            $('.message').html('<h2>YOU WIN!</h2><br><h2>PLAY AGAIN?</h2>');
+   
+
             console.log('win');
-            //resetGame();
+            $('#restart-button').show();
+            $('#attack-button').hide();
+
+
         }
 
 
@@ -402,6 +527,9 @@ $(document).ready(function() {
 
         $('#user-container').empty();
         $('#enemy-container').empty();
+
+        // $('.message').css('')
+        // $('.message').hide();
     }
 
     

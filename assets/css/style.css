@@ -1,15 +1,18 @@
 body {
     box-sizing: border-box;
     width: 80%;
-    background: black;
+    /* background: black; */
+    background: url('../images/star-wars-background.jpg');
     color: white;
     margin: 0 auto;
     font-family: 'Lekton';
 }
 
-h1 {
-    text-align: center;
-    font-size: 48px;
+
+#logo {
+    display: block;
+
+    margin: 20px auto 20px auto;
 }
 
 /* FIGHTER IMAGES */
@@ -31,7 +34,9 @@ img {
     border: 1px solid white;
     height: 200px;
     width: 150px;
+    background:black;
 }
+
 
 .fighter p {
     margin-top: 10px;
@@ -70,6 +75,7 @@ img {
 #enemy-box {
     border: 1px solid white;
     display: inline-block;
+    background: black;
 }
 
  #enemy,
@@ -99,16 +105,39 @@ img {
 .message {
     /* border: 1px solid white; */
     float: right;
-    height: 200px;
-    width: 300px;
+    height: 300px;
+    width: 400px;
     position: absolute;
-    right: 0px;
-    top: 100px;
-    padding-top: 80px;
-    font-size: 24px;
+    right: -100px;
+    top: 50px;
+    padding-top: 120px;
     color: yellow;
 }
 
+.message h2 {
+    font-size: 30px;
+}
+
+.message p {
+    font-size: 16px;
+}
+
+.rules {
+    /* float: left; */
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    left: -100px;
+    top: 50px;
+    padding: 30px 5px;
+    color: yellow;
+    border: 1px solid yellow;
+    line-height: 1.5;
+}
+
+.rules p {
+    font-size: 18px;
+}
 .characters {
     position: relative;
 }

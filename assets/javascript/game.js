@@ -91,6 +91,7 @@ $(document).ready(function() {
             $('#user-health-points').html(bb8.health);
             $('#user-attack-points').html(bb8.attack); 
 
+            // FADE OUT OTHER HEROES
             $('.hero-2').css('opacity', '0.3');
             $('.hero-3').css('opacity', '0.3');
             $('.hero-4').css('opacity', '0.3');

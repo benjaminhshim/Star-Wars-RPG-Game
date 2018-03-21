@@ -4,6 +4,7 @@ $(document).ready(function() {
     var chosenEnemy = false;
     var messageLock = false;
     var attackLock = false;
+    var healthLock = false;
 
     var userAttack;
     var userHealth;
@@ -119,7 +120,7 @@ $(document).ready(function() {
 
         // RE-ENGAGE ATTACK BUTTON AFTER SINGLE ENEMY DIES
         attackLock = false;
-
+        healthLock = false;
         
 
 
@@ -167,7 +168,7 @@ $(document).ready(function() {
         }
 
         attackLock = false;
-
+        healthLock = false;
 
 
     })
@@ -215,7 +216,7 @@ $(document).ready(function() {
         }
 
         attackLock = false;
-
+        healthLock = false;
     })
 
     // YODA
@@ -259,7 +260,7 @@ $(document).ready(function() {
             messageLock = true;
         }
         attackLock = false;
-
+        healthLock = false;
 
     })
 
@@ -453,7 +454,7 @@ $(document).ready(function() {
     // ATTACK BUTTON
     $('#attack-button').click(function() {
 
-        if (attackLock == false) {
+        if ((attackLock == false) && (healthLock == false)) {
             // USER ATTACK INCREMENTS
             userCounterAttack = userCounterAttack + userAttack;
 
@@ -485,14 +486,15 @@ $(document).ready(function() {
         // WHEN enemyHealth <= 0, DISABLE ATTACK BUTTON
         if ((userHealth > 0) && (enemyHealth <= 0) && (attackLock == false)) {
             attackLock = true;
+            //healthLock = true;
         }
 
         // IF A SINGLE ENEMY DIES
             // REPLACE CURRENT ENEMY WITH NEW ENEMY
             // PUSH CURRENT ENEMY INTO defeatedEnemies ARRAY
-        if (enemyHealth <= 0) {
-
+        if (enemyHealth <= 0 && healthLock == false) {
             //defeatedEnemies.push(enemy);
+            healthLock = true;
             defeatedEnemies[defeatedEnemies.length] = enemy;
             $('#defeated-enemies').append(enemy);
             console.log(defeatedEnemies);
@@ -505,8 +507,9 @@ $(document).ready(function() {
         }
 
 
+
         // IF USER DEFEATS ALL ENEMIES
-        if (defeatedEnemies.length == 4) {
+        if (defeatedEnemies.length === 4) {
 
             
             $('.message').css('border', '1px solid yellow').css('font-weight', 'bold');
@@ -514,8 +517,8 @@ $(document).ready(function() {
    
 
             console.log('win');
-            $('#restart-button').show();
             $('#attack-button').hide();
+            $('#restart-button').show();
 
 
         }
@@ -555,8 +558,11 @@ $(document).ready(function() {
         $('#user-container').empty();
         $('#enemy-container').empty();
 
-        // $('.message').css('')
-        // $('.message').hide();
+        $('.message').css(' ');
+        $('.message').hide();
+
+        messageLock = false;
+        attackLock = false;
     }
 
     

@@ -1,3 +1,10 @@
+// NOTES TO THE TA
+    // RESTART BUTTON NOT WORKING
+    // DIVS HOLDING IMAGES ARE COLLAPSING
+    // CHOOSE A RANDOM FIGHTER -- UNFINISHED
+    // OPTION TO CHOOSE A RANDOM ENEMY AFTER AN ENEMY DIES -- UNFINISHED
+
+
 $(document).ready(function() {
 
     var chosenUser = false;
@@ -14,6 +21,9 @@ $(document).ready(function() {
     // STORE ALL DEFEATED ENEMIES INTO AN ARRAY
     var defeatedEnemies = [];
 
+    var currentEnemy= [];
+
+
     // HIDE RESTART BUTTON AT THE START OF THE GAME
     var restartButton = $('#restart-button');
     restartButton.hide();
@@ -21,53 +31,73 @@ $(document).ready(function() {
 
     var userCounterAttack = 0;
 
+    // CREATE ARRAYS FOR OPTION TO CHOOSE A RANDOM FIGHTER
+    // var heroArray = [bb8, obiWan, r2d2, yoda];
+    // var villainArray = [porg, darthVader, tieFighter, darthMaul];
+
+
     // CREATE OBJECTS FOR EACH FIGHTER
     var bb8 = {
         name: 'BB-8',
         health: 100,
-        attack: 5
+        attack: 5,
+        enemy: true,
     }
 
     var obiWan = {
         name: 'OBI-WAN',
         health: 250,
-        attack: 20
+        attack: 20,
+        enemy: true,
+
     }
 
     var r2d2 = {
         name: 'R2-D2',
         health: 100,
         attack: 15,
+        enemy: true,
+
     }
 
     var yoda = {
         name: 'YODA',
         health: 300,
-        attack: 25
+        attack: 25,
+        enemy: true,
+
     }
 
     var porg = {
         name: 'PORG',
         health: 50,
         attack: 5,
+        enemy: true,
+
     }
 
     var darthVader = {
         name: 'DARTH VADER',
         health: 200,
-        attack: 25
+        attack: 25,
+        enemy: true,
+
     }
 
     var stormtrooper = {
         name: 'STORM TROOPER',
         health: 100,
-        attack: 15
+        attack: 15,
+        enemy: true,
+
     }
 
     var darthMaul = {
         name: 'DARTH MAUL',
         health: 150,
-        attack: 20
+        attack: 20,
+        enemy: true,
+
     }
 
     // CREATE CLICK FUNCTIONS FOR EACH FIGHTER
@@ -79,12 +109,13 @@ $(document).ready(function() {
             user = chosenUser;
             user = this;
 
+
             userAttack = bb8.attack;
             userHealth = bb8.health;
 
             // PRINT TO #user-container
             $(user).clone(this).appendTo('#user-container');
-
+            
             // ADD STYLE TO #user-container
             $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
 
@@ -102,12 +133,19 @@ $(document).ready(function() {
             enemy = chosenEnemy;
             enemy = this;
 
+            currentEnemy[currentEnemy.length] = this;
+
             enemyAttack = bb8.attack;
             enemyHealth = bb8.health;
 
             //$(enemy).clone(this).appendTo('#enemy-container');
             $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+
             $('#enemy-container').html(enemy);
+
+            // enemybb8 = $('<img src="assets/images/bb8.jpg"><p style="padding-top:10px;font-size:24px">BB-8</p>');
+            // $('#enemy-container').append(enemybb8);
+
             $('#enemy-health-points').html(bb8.health);
             $('#enemy-attack-points').html(bb8.attack);
         }
@@ -156,7 +194,12 @@ $(document).ready(function() {
 
             //$(enemy).clone(this).appendTo('#enemy-container');
             $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+
             $('#enemy-container').html(enemy);
+
+            // enemyObiWan = $('<img src="assets/images/obi-wan.png"><p style="padding-top:10px;font-size:24px">OBI-WAN</p>');
+            // $('#enemy-container').append(enemyObiWan);
+
             $('#enemy-health-points').html(obiWan.health);
             $('#enemy-attack-points').html(obiWan.attack);
         }
@@ -204,7 +247,12 @@ $(document).ready(function() {
 
             //$(enemy).clone(this).appendTo('#enemy-container');
             $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
+
             $('#enemy-container').html(enemy);
+
+            // enemyr2d2 = $('<img src="assets/images/r2d2.png"><p style="padding-top:10px;font-size:24px">R2-D2</p>');
+            // $('#enemy-container').append(enemyr2d2);
+
             $('#enemy-health-points').html(r2d2.health);
             $('#enemy-attack-points').html(r2d2.attack);
         }
@@ -250,6 +298,10 @@ $(document).ready(function() {
             //$(enemy).clone(this).appendTo('#enemy-container');
             $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
             $('#enemy-container').html(enemy);
+
+            // enemyYoda = $('<img src="assets/images/yoda.png"><p style="padding-top:10px;font-size:24px">YODA</p>');
+            // $('#enemy-container').append(enemyYoda);
+
             $('#enemy-health-points').html(yoda.health);
             $('#enemy-attack-points').html(yoda.attack);
         }
@@ -296,6 +348,10 @@ $(document).ready(function() {
             //$(enemy).clone(this).appendTo('#enemy-container');
             $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
             $('#enemy-container').html(enemy);
+
+            // enemyPorg = $('<img src="assets/images/porg.jpg"><p style="padding-top:10px;font-size:24px">PORG</p>');
+            // $('#enemy-container').append(enemyPorg);
+
             $('#enemy-health-points').html(porg.health);
             $('#enemy-attack-points').html(porg.attack);
         }
@@ -307,6 +363,7 @@ $(document).ready(function() {
         }
 
         attackLock = false;
+        healthLock = false;
 
 
     
@@ -344,6 +401,10 @@ $(document).ready(function() {
             //$(enemy).clone(this).appendTo('#enemy-container');
             $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
             $('#enemy-container').html(enemy);
+
+            // enemyDarthVader = $('<img src="assets/images/darth-vader.png"><p style="padding-top:10px;font-size:24px">DARTH VADER</p>');
+            // $('#enemy-container').append(enemyDarthVader);
+
             $('#enemy-health-points').html(darthVader.health);
             $('#enemy-attack-points').html(darthVader.attack);
         }
@@ -355,6 +416,7 @@ $(document).ready(function() {
         }
 
         attackLock = false;
+        healthLock = false;
 
 
     })
@@ -389,6 +451,10 @@ $(document).ready(function() {
             //$(enemy).clone(this).appendTo('#enemy-container');
             $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
             $('#enemy-container').html(enemy);
+
+            // enemyStormTrooper = $('<img src="assets/images/storm-trooper-helmet.png"><p style="padding-top:10px;font-size:24px">STORMTROOPER</p>');
+            // $('#enemy-container').append(enemyStormTrooper);
+
             $('#enemy-health-points').html(stormtrooper.health);
             $('#enemy-attack-points').html(stormtrooper.attack);
         }
@@ -401,6 +467,7 @@ $(document).ready(function() {
 
 
         attackLock = false;
+        healthLock = false;
 
     })
 
@@ -436,6 +503,10 @@ $(document).ready(function() {
             //$(enemy).clone(this).appendTo('#enemy-container');
             $('#enemy-box').css('border', '1px solid red').css('box-shadow', '0px 0px 10px 2px red');
             $('#enemy-container').html(enemy);
+
+            // enemyDarthMaul = $('<img src="assets/images/darth-maul.png"><p style="padding-top:10px;font-size:24px">DARTH MAUL</p>');
+            // $('#enemy-container').append(enemyDarthMaul);
+
             $('#enemy-health-points').html(darthMaul.health);
             $('#enemy-attack-points').html(darthMaul.attack);
         }
@@ -446,6 +517,7 @@ $(document).ready(function() {
             messageLock = true;
         }
         attackLock = false;
+        healthLock = false;
 
 
     })
@@ -473,11 +545,11 @@ $(document).ready(function() {
         // IF USER DIES
             // REPLACE 'ATTACK' BUTTON WITH 'RESTART' BUTTON
                 // RESET GAME
-
         if (userHealth <= 0) {
             $('#restart-button').show();
             $('#attack-button').hide();
 
+            // DISPLACE GAME OVER MESSAGE
             $('.message').css('border', '1px solid yellow').css('font-weight', 'bold');
             $('.message').html('<h2>GAME OVER.</h2><br><h2>PRESS RESTART TO PLAY AGAIN.</h2>');
 
@@ -486,15 +558,14 @@ $(document).ready(function() {
         // WHEN enemyHealth <= 0, DISABLE ATTACK BUTTON
         if ((userHealth > 0) && (enemyHealth <= 0) && (attackLock == false)) {
             attackLock = true;
-            //healthLock = true;
         }
 
         // IF A SINGLE ENEMY DIES
             // REPLACE CURRENT ENEMY WITH NEW ENEMY
             // PUSH CURRENT ENEMY INTO defeatedEnemies ARRAY
         if (enemyHealth <= 0 && healthLock == false) {
-            //defeatedEnemies.push(enemy);
             healthLock = true;
+            //defeatedEnemies.push(enemy);
             defeatedEnemies[defeatedEnemies.length] = enemy;
             $('#defeated-enemies').append(enemy);
             console.log(defeatedEnemies);
@@ -502,21 +573,24 @@ $(document).ready(function() {
             // TURN chosenEnemy BACK TO FALSE TO LET NEW CLICKED FIGHTER GOES TO ENEMY WINDOW
             chosenEnemy = false;
 
-            // REMOVE CURRENT ENEMY IMAGE
-
+            // CHOOSE A RANDOM ENEMY 
+            // if (enemyHealth <= 0 && $(enemy).hasClass('villain') && enemyDeadArray.indexOf(enemy) < 0) {
+            //    var randomEnemy = villainArray[Math.floor(Math.random() * villainArray.length)];
+            // }
         }
 
-
-
+    
         // IF USER DEFEATS ALL ENEMIES
         if (defeatedEnemies.length === 4) {
 
-            
+            // DISPLAY MESSAGE
             $('.message').css('border', '1px solid yellow').css('font-weight', 'bold');
             $('.message').html('<h2>YOU WIN!</h2><br><h2>PLAY AGAIN?</h2>');
    
 
             console.log('win');
+
+            // REPLACE ATTACK BUTTON WITH RESTART BUTTON
             $('#attack-button').hide();
             $('#restart-button').show();
 
@@ -563,6 +637,7 @@ $(document).ready(function() {
 
         messageLock = false;
         attackLock = false;
+
     }
 
     

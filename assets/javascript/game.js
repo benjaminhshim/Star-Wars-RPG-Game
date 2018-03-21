@@ -117,7 +117,8 @@ $(document).ready(function() {
             messageLock = true;
         }
 
-        
+        // RE-ENGAGE ATTACK BUTTON AFTER SINGLE ENEMY DIES
+        attackLock = false;
 
         
 
@@ -165,6 +166,7 @@ $(document).ready(function() {
             messageLock = true;
         }
 
+        attackLock = false;
 
 
 
@@ -212,6 +214,7 @@ $(document).ready(function() {
             messageLock = true;
         }
 
+        attackLock = false;
 
     })
 
@@ -255,6 +258,7 @@ $(document).ready(function() {
             $('.message').html('<h2>DEFEAT THE EMPIRE!<h2> <p>(and their evil porg)<p>');
             messageLock = true;
         }
+        attackLock = false;
 
 
     })
@@ -300,6 +304,8 @@ $(document).ready(function() {
             $('.message').html('<h2>DEFEAT THE REBELLION!<h2>');
             messageLock = true;
         }
+
+        attackLock = false;
 
 
     
@@ -347,6 +353,7 @@ $(document).ready(function() {
             messageLock = true;
         }
 
+        attackLock = false;
 
 
     })
@@ -392,6 +399,7 @@ $(document).ready(function() {
         }
 
 
+        attackLock = false;
 
     })
 
@@ -436,6 +444,7 @@ $(document).ready(function() {
             $('.message').html('<h2>DEFEAT THE REBELLION!<h2>');
             messageLock = true;
         }
+        attackLock = false;
 
 
     })
@@ -443,36 +452,48 @@ $(document).ready(function() {
 
     // ATTACK BUTTON
     $('#attack-button').click(function() {
-        // USER ATTACK INCREMENTS
-        userCounterAttack = userCounterAttack + userAttack;
 
-        // USERHEALTH DECREASES BY ENEMY'S ATTACK VALUE
-        // ENEMYHEALTH DECREASES BY USER'S INCREMENTING ATTACK VALUE
-        userHealth = userHealth - enemyAttack;
-        enemyHealth = enemyHealth - userCounterAttack;
+        if (attackLock == false) {
+            // USER ATTACK INCREMENTS
+            userCounterAttack = userCounterAttack + userAttack;
 
-        // PRINT STATS TO WINDOW
-        $('#user-health-points').html(userHealth);
-        $('#enemy-health-points').html(enemyHealth);
-        $('#user-attack-points').html(userCounterAttack);
+            // USERHEALTH DECREASES BY ENEMY'S ATTACK VALUE
+            // ENEMYHEALTH DECREASES BY USER'S INCREMENTING ATTACK VALUE
+            userHealth = userHealth - enemyAttack;
+            enemyHealth = enemyHealth - userCounterAttack;
+
+            // PRINT STATS TO WINDOW
+            $('#user-health-points').html(userHealth);
+            $('#enemy-health-points').html(enemyHealth);
+            $('#user-attack-points').html(userCounterAttack);
+        }
+
 
         // IF USER DIES
             // REPLACE 'ATTACK' BUTTON WITH 'RESTART' BUTTON
                 // RESET GAME
+
         if (userHealth <= 0) {
             $('#restart-button').show();
             $('#attack-button').hide();
 
-                $('.message').css('border', '1px solid yellow').css('font-weight', 'bold');
-                $('.message').html('<h2>GAME OVER.</h2><br><h2>PRESS RESTART TO PLAY AGAIN.</h2>');
+            $('.message').css('border', '1px solid yellow').css('font-weight', 'bold');
+            $('.message').html('<h2>GAME OVER.</h2><br><h2>PRESS RESTART TO PLAY AGAIN.</h2>');
 
+        }
+
+        // WHEN enemyHealth <= 0, DISABLE ATTACK BUTTON
+        if ((userHealth > 0) && (enemyHealth <= 0) && (attackLock == false)) {
+            attackLock = true;
         }
 
         // IF A SINGLE ENEMY DIES
             // REPLACE CURRENT ENEMY WITH NEW ENEMY
             // PUSH CURRENT ENEMY INTO defeatedEnemies ARRAY
         if (enemyHealth <= 0) {
-            defeatedEnemies.push(enemy);
+
+            //defeatedEnemies.push(enemy);
+            defeatedEnemies[defeatedEnemies.length] = enemy;
             $('#defeated-enemies').append(enemy);
             console.log(defeatedEnemies);
 
@@ -483,8 +504,9 @@ $(document).ready(function() {
 
         }
 
+
         // IF USER DEFEATS ALL ENEMIES
-        if (defeatedEnemies.length === 4) {
+        if (defeatedEnemies.length == 4) {
 
             
             $('.message').css('border', '1px solid yellow').css('font-weight', 'bold');

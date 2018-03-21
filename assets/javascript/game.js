@@ -81,9 +81,13 @@ $(document).ready(function() {
             userAttack = bb8.attack;
             userHealth = bb8.health;
 
-            
+            // PRINT TO #user-container
             $(user).clone(this).appendTo('#user-container');
+
+            // ADD STYLE TO #user-container
             $('#user-box').css('border', '1px solid green').css('box-shadow', '0px 0px 10px 2px green');
+
+            // PRINT STATS TO #user-container
             $('#user-health-points').html(bb8.health);
             $('#user-attack-points').html(bb8.attack); 
 
